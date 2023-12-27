@@ -11,4 +11,7 @@ import java.util.ArrayList;
 @Repository
 public interface BlogRepository extends JpaRepository<Blog, Integer> {
 
+    @Query(value = "select * from blog where blog_id:=userID",nativeQuery = true)
+    public Blog findUser(int userID);
+
 }
